@@ -15,7 +15,7 @@ const Game = () => {
     const [sourceMatrix, setSourceMatrix] = useState();
     const [destinationMatrix, setDestinationMatrix] = useState();
     const [flipCount, setFlipCount] = useState(0);
-    const [goalCount, setGoalCount] = useState(20);
+    const [goalCount, setGoalCount] = useState(0);
 
     // As destination matrix is being used in generating source martix, using in use effect to avoid error
     useEffect( ()=> {
@@ -42,6 +42,7 @@ const Game = () => {
         setSourceMatrix();
         setDestinationMatrix();
         setFlipCount(0);
+        setGoalCount(0);
     }
 
     const validateInput = () => {
@@ -148,6 +149,7 @@ const Game = () => {
     const handleInputChange = (value) => {
         setError('');
         setSize(value);
+        setGoalCount(value);
     }
 
     const generateRandomMatrix = () => {
@@ -224,6 +226,11 @@ const Game = () => {
                         <div className="Game__scoreBlockFlipCount"> flipCount: {flipCount} </div>
                         <div className="Game__scoreBlockGoal"> goalCount: {goalCount} </div>
                     </div>
+                    <br />
+                    <div className="Game__scoreBlock">
+                        <div className="Game__scoreBlockFlipCount"> Source Matrix</div>
+                        <div className="Game__scoreBlockGoal"> Destination Matrix</div>
+                    </div>
 
                     <div className="Game__matrices">
                         <div className="Game__sourceMatrix"> {sourceMatrix ? printMatrix(sourceMatrix, 'sourceMatrix') : ''} </div>
@@ -233,8 +240,9 @@ const Game = () => {
                 }
 
                 <p style={{marginTop:24}}>
-                    Game Instructions:
-                    1.Click on row or column to flip 
+                    Game Instructions: <br/>
+                    1. Click on row or column to flip <br/>
+                    2. Try Converting source matrix into Destination martix in given goal count
                 </p>
                 
            </Card>
