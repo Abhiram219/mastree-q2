@@ -1,0 +1,71 @@
+.Game{ 
+    padding: 30px;
+    background: #ececec;
+
+    &__header {
+        display: inline-flex;
+        align-items: center;
+        p{
+            margin: 0 12px 0 0;
+        }
+    }
+
+    &__generate {
+        margin-top: 16px;
+    }
+
+    &__scoreBlock {
+        margin-top: 16px;
+        display: inline-flex;
+    }
+
+    &__scoreBlockGoal {
+        margin-left: 24px
+    }
+
+    &__matrices {
+        display: flex;
+    }
+
+    &__sourceMatrix {
+        display: flex;
+        flex-flow: column; 
+    }
+
+    &__destinaitonMatrix {
+        margin-left: 24px;
+        display: flex;
+        flex-flow: column; 
+    }
+
+}
+
+.matrix{ 
+    &__rowHeader {
+        padding: 4px;
+        cursor: pointer;
+    }
+    &__rowHeader:hover {
+        background: #8080808c;
+        border-radius: 50%;
+    }
+    &__row {
+        display: inline-flex;
+    }
+
+    &__colHeader {
+        padding: 4px;
+        cursor: pointer;
+    }
+    &__colHeader:hover {
+        background: #8080808c;
+        border-radius: 50%;
+    }
+    &__col {
+        padding: 4px;
+    }
+}
+
+.error {
+    color: red;
+}
