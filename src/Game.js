@@ -3,6 +3,7 @@ import { InputNumber, Button, Card } from "antd";
 
 import 'antd/dist/antd.css';
 import './Game.scss'
+import { returnStatement } from "@babel/types";
 
 // Using react Hooks
 
@@ -56,7 +57,6 @@ const Game = () => {
     }
 
     const rowHeaderClick = (rowIndex, matrixType) => {
-        console.log(rowIndex)
         if(matrixType === "destinationMatrix"){
             return;
         }
@@ -78,7 +78,6 @@ const Game = () => {
     }
 
     const colHeaderClick = (colIndex, matrixType) =>  {
-        console.log(colIndex)
         if(matrixType === "destinationMatrix"){
             return;
         }
@@ -207,7 +206,7 @@ const Game = () => {
            <Card bordered={false} style={{ minWidth: 300 }}>
                 <div className="Game__header">
                     <p>Enter the size of Game Matrix :</p>
-                    <InputNumber onChange={handleInputChange}/>
+                    <InputNumber onChange={handleInputChange} min={2}/>
                     {error ? <div className="error">{error}</div> : ''}
                 </div>
 
