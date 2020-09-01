@@ -41,7 +41,7 @@ const Game = () => {
         setGameStarted(false);
         setSourceMatrix();
         setDestinationMatrix();
-        setFlipCount();
+        setFlipCount(0);
     }
 
     const validateInput = () => {
@@ -194,6 +194,7 @@ const Game = () => {
 
     const startGame = () => {
         if( validateInput() ) {
+            setFlipCount(0);
             generateRandomMatrix();
             // generateSourceMatrix();
             setGameStarted(true);
@@ -206,14 +207,14 @@ const Game = () => {
            <Card bordered={false} style={{ minWidth: 300 }}>
                 <div className="Game__header">
                     <p>Enter the size of Game Matrix :</p>
-                    <InputNumber onChange={handleInputChange} min={2}/>
+                    <InputNumber onChange={handleInputChange} value={size} min={2}/>
                     {error ? <div className="error">{error}</div> : ''}
                 </div>
 
                 <div className="Game__generate">
-                    <Button type="primary" onClick={()=>{startGame()}}> Click to Start Game </Button>
+                    <Button type="primary" onClick={()=>{startGame()}}>  Start Game </Button>
                     {gameStarted &&
-                        <Button type="primary" style={{marginLeft:16}} onClick={()=>{resetGame()}}> Reset Game </Button>
+                        <Button type="primary" style={{marginLeft:16}} onClick={()=>{resetGame()}}> Reset </Button>
                     }
                 </div>
 
@@ -230,6 +231,11 @@ const Game = () => {
                     </div>
                 </>
                 }
+
+                <p style={{marginTop:24}}>
+                    Game Instructions:
+                    1.Click on row or column to flip 
+                </p>
                 
            </Card>
 
